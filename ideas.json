@@ -1,0 +1,245 @@
+[
+ {
+  "id": "2026-10-12-1",
+  "title": "Recall Check Before Sign-Up",
+  "cat": "Trust",
+  "what": "Let a visitor type a brand and model (or snap a label) and instantly see if it has an open recall, free. It proves the Recall Tracking promise on the first screen and is the kind of hook people share.",
+  "before": "Recall Tracking is one line on the home page",
+  "after": "'Check Your Water Heater for Recalls' tool, then 'Track All My Equipment' button",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-2",
+  "title": "Snap a Label, Auto-Fill the Model and Serial",
+  "cat": "Photos",
+  "what": "On the photo step, read the brand, model and serial from the label photo and show them back for a quick confirm. Fewer typing steps, and the quote gets exact equipment data.",
+  "before": "Photo cards just collect pictures",
+  "after": "Photo, then 'Rheem XG50T, Serial 0423...' with Looks Right / Fix It",
+  "img": "img/c-photos.jpg"
+ },
+ {
+  "id": "2026-10-12-3",
+  "title": "Add Visits to My Calendar",
+  "cat": "After Sign-Up",
+  "what": "On the confirmation screen, offer an .ics download (or Google Calendar link) for the first visit and the seasonal schedule. Members stop forgetting visits and no-shows drop.",
+  "before": "Confirmation shows a summary only",
+  "after": "'Add My Visit Schedule to Calendar' button with 4 seasonal events",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-4",
+  "title": "Fix the Silver vs Platinum Mismatch",
+  "cat": "Pricing",
+  "what": "The video's closing card shows $99 Silver and $219 Gold, but the app offers Gold and Platinum at thousands a year. Pick one lineup (the research suggests Silver, Gold, Platinum) and make the video and app match.",
+  "before": "Video: $99 Silver, $219 Gold. App: Gold $2,780+, Platinum",
+  "after": "One lineup everywhere, same names and prices",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-5",
+  "title": "Add a Silver Entry Tier",
+  "cat": "Pricing",
+  "what": "The pricing research shows Gold at $2,600+ is a big first purchase; a 2-visit Silver at about $900 to $1,300 gets you into the house and the visit report sells the upgrade.",
+  "before": "Gold or Platinum only",
+  "after": "Silver, Gold (Most Popular), Platinum cards",
+  "img": "img/c-tier.jpg"
+ },
+ {
+  "id": "2026-10-12-6",
+  "title": "Show Monthly Price First",
+  "cat": "Pricing",
+  "what": "Lead with 'About $232 a month' and put the yearly total underneath, and let Gold be paid monthly or quarterly too. Big annual numbers scare people off at the moment they decide.",
+  "before": "$2,780 / year, paid annually up front",
+  "after": "$232 / month, billed monthly (or $2,780 a year)",
+  "img": "img/c-tier.jpg"
+ },
+ {
+  "id": "2026-10-12-7",
+  "title": "Write Clear Cancellation Terms",
+  "cat": "Legal",
+  "what": "The agreement says cancellation and refund terms are to be determined. State them plainly (for example, cancel anytime before the next visit, prorated refund) and show a one-line version next to the price.",
+  "before": "'Cancellation and refund terms are to be determined.'",
+  "after": "'Cancel anytime. Unused visits refunded.' under each price",
+  "img": "img/c-legal.jpg"
+ },
+ {
+  "id": "2026-10-12-8",
+  "title": "Finalize the Agreement and Waiver",
+  "cat": "Legal",
+  "what": "Both are marked Draft, Pending Legal Review. Get them reviewed and swap in final text before taking real sign-ups, since a draft label right before signing kills trust.",
+  "before": "Two DRAFT boxes and two signatures",
+  "after": "One final agreement, one signature, a summary of key terms",
+  "img": "img/c-legal.jpg"
+ },
+ {
+  "id": "2026-10-12-9",
+  "title": "Turn On Real Payments",
+  "cat": "Checkout",
+  "what": "The payment fields are disabled with a 'Demo' note, so nobody can actually buy. Wire up Stripe Checkout (or a 'Reserve Now, Pay at First Visit' option) so the funnel converts.",
+  "before": "Disabled card fields, 'Complete Sign Up (Demo)'",
+  "after": "Stripe Checkout or 'Reserve My Spot, Pay After First Visit'",
+  "img": "img/c-pay.jpg"
+ },
+ {
+  "id": "2026-10-12-10",
+  "title": "Collect a Waitlist for Out-of-Area ZIPs",
+  "cat": "Funnel",
+  "what": "A ZIP like 90210 only gets a warning and then a metro Detroit estimate that means nothing. Instead say 'We are not there yet' and capture an email so you know where demand is.",
+  "before": "Warning, then 'tap Next again to continue'",
+  "after": "'Not in your area yet. Want a heads-up when we are?' + email",
+  "img": "img/c-zip.jpg"
+ },
+ {
+  "id": "2026-10-12-11",
+  "title": "Hide the Prototype Badge",
+  "cat": "Trust",
+  "what": "The header says 'Prototype, Draft Pricing' on every screen. For real homeowners, drop it and keep the 'estimate' wording near the price instead.",
+  "before": "'PROTOTYPE, DRAFT PRICING' tag in the header",
+  "after": "Clean header with logo and a Call or Text button",
+  "img": "img/c-header.jpg"
+ },
+ {
+  "id": "2026-10-12-12",
+  "title": "Don't Auto-Open the Video",
+  "cat": "Speed",
+  "what": "The explainer opens in a full-screen modal on first visit and downloads a 4 MB video before people see anything. Show the page first, with a poster card that plays the video on tap.",
+  "before": "Modal video covers the home page",
+  "after": "Hero with a small 'Watch 60s Video' poster thumbnail",
+  "img": "img/c-video.jpg"
+ },
+ {
+  "id": "2026-10-12-13",
+  "title": "Add Real Trust Signals",
+  "cat": "Trust",
+  "what": "Show license and insurance numbers, a named local owner, reviews or a 'Founding Member' count, and a satisfaction guarantee near the Get Started button. Today the claims have no proof.",
+  "before": "'Licensed & Insured Techs' with no detail",
+  "after": "License #, insurer, '4.9 stars from 31 neighbors', guarantee badge",
+  "img": "img/c-hero.jpg"
+ },
+ {
+  "id": "2026-10-12-14",
+  "title": "Add a Call or Text Us Button",
+  "cat": "Trust",
+  "what": "There is no phone number or contact anywhere. A sticky Text Us button gives nervous buyers a human and catches leads who won't fill a form.",
+  "before": "No contact option",
+  "after": "'Questions? Text Us' in the header and on the price screen",
+  "img": "img/c-header.jpg"
+ },
+ {
+  "id": "2026-10-12-15",
+  "title": "Explain Unsure Answers on the Price",
+  "cat": "Funnel",
+  "what": "After 8 Unsure answers the price quietly assumes a typical home. Show which answers were guessed with a one-tap fix, so the price feels honest rather than random.",
+  "before": "'You answered Unsure 8 times'",
+  "after": "List: 'Furnaces: guessed 1, Fix' for each Unsure",
+  "img": "img/c-unsure.jpg"
+ },
+ {
+  "id": "2026-10-12-16",
+  "title": "Show a Price Range While Answering",
+  "cat": "Funnel",
+  "what": "Show a small running estimate (for example $2,400 to $3,200) that narrows as they answer. It rewards each answer and avoids sticker shock at the end.",
+  "before": "Price appears only at Step 3",
+  "after": "Sticky 'Your estimate so far: $2.4k to $3.2k' bar",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-17",
+  "title": "Shorter Path: Skip Straight to a Price",
+  "cat": "Funnel",
+  "what": "Offer 'Just Give Me a Ballpark' after the ZIP and home size, filling the rest with typical values. Impatient visitors still see a number and can refine later.",
+  "before": "7 questions before any price",
+  "after": "ZIP + size, then 'See Ballpark' or 'Refine My Price'",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-18",
+  "title": "Save Progress and Email the Quote",
+  "cat": "Funnel",
+  "what": "Let people email themselves the estimate or get a resume link. Most homeowners decide with a spouse, so they need to come back later.",
+  "before": "Progress only in this browser",
+  "after": "'Email Me This Quote' button on the price screen",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-19",
+  "title": "Spell Out What a Visit Looks Like",
+  "cat": "Copy",
+  "what": "Add a simple timeline: 'Fall visit: furnace tune-up, gutter clean, smoke and CO test, 90 minutes'. People buy what they can picture.",
+  "before": "Long bullet lists per tier",
+  "after": "4 season cards with what happens and how long",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-20",
+  "title": "Compare Against Booking It Yourself",
+  "cat": "Pricing",
+  "what": "Show 'What this costs a la carte in metro Detroit' next to the membership price, using the research numbers. It frames the membership as savings, but only if the numbers truly hold up.",
+  "before": "Price with no reference point",
+  "after": "'Booked separately: about $3,400. With Gold: $2,780.'",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-21",
+  "title": "Make the Signature Step Lighter",
+  "cat": "Checkout",
+  "what": "Two separate draw-or-type signatures plus two checkboxes is a lot on a phone. Use one combined 'I agree to the Agreement and Waiver' checkbox with a typed name.",
+  "before": "2 checkboxes, 2 signature pads",
+  "after": "1 checkbox + typed full name",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-22",
+  "title": "Label Every Form Field for Screen Readers",
+  "cat": "Accessibility",
+  "what": "Five inputs on the sign-up step (typed signatures and card fields) have no linked label. Add proper labels and error announcements so screen readers and autofill work.",
+  "before": "5 inputs with no label",
+  "after": "All inputs labelled, autocomplete set (name, tel, email, street-address)",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-23",
+  "title": "Add to Home Screen After Sign-Up",
+  "cat": "After Sign-Up",
+  "what": "After joining, offer a small dismissible 'Keep Smart Upkeep on your phone' card, so members can see their schedule and reports like an app.",
+  "before": "Nothing after confirmation",
+  "after": "Dismissible install card with Add / Not Now",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-24",
+  "title": "Offline Shutoffs and Emergency Info for Members",
+  "cat": "After Sign-Up",
+  "what": "After the first visit, give members a page with photos of their own water, gas and electric shutoffs that works offline. It is useful on the worst day and makes the membership sticky.",
+  "before": "Shutoff valves checked, not recorded for the owner",
+  "after": "'My Shutoffs' page with photos and steps, works offline",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-25",
+  "title": "A Sample Visit Report",
+  "cat": "Trust",
+  "what": "Link a sample written report (photos, findings, next steps) from the price screen. It shows the value of 'Written report after every visit' better than a bullet.",
+  "before": "'Written report after every visit' bullet",
+  "after": "'See a Sample Report' link opens a 1-page example",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-26",
+  "title": "Seasonal Reminders by Text",
+  "cat": "After Sign-Up",
+  "what": "Text members a day before each visit and a short tip each season (for example 'Change your furnace filter'). It keeps the brand top of mind and cuts no-shows.",
+  "before": "No reminders",
+  "after": "Opt-in SMS checkbox at sign-up",
+  "img": null
+ },
+ {
+  "id": "2026-10-12-27",
+  "title": "Referral Credit",
+  "cat": "Growth",
+  "what": "Give a credit (for example one free month) for each neighbor who joins. Home services spread by word of mouth in a neighborhood.",
+  "before": "No referral option",
+  "after": "'Share With a Neighbor, Both Get a Month Free' on confirmation",
+  "img": "img/c-foot.jpg"
+ }
+]
