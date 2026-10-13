@@ -18,21 +18,22 @@
   function flush(){var a=q();if(!a.length)return Promise.resolve(0);setQ([]);var left=[];
     return Promise.all(a.map(function(p){return post(p).catch(function(){left.push(p)})})).then(function(){if(left.length)setQ(q().concat(left));return a.length-left.length;});}
   function button(el,o){css();o=o||{};
-    var wrap=document.createElement('div');wrap.className='mws-wrap';
+    var wrap=document.createElement('div');wrap.className='mws-wrap'+(o.compact?' mws-compact':'');
     var b=document.createElement('button');b.type='button';b.className='mws-btn mw-hover';
     var m=document.createElement('div');m.className='mws-msg';m.setAttribute('role','status');m.setAttribute('aria-live','polite');
     wrap.appendChild(b);wrap.appendChild(m);el.appendChild(wrap);
     function state(s){b.classList.remove('sent','fail');b.disabled=false;
-      if(s==='idle'){b.textContent='Submit';m.textContent='';}
+      if(s==='idle'){b.textContent=o.label||'Submit';m.textContent='';}
       if(s==='sending'){b.textContent='Sending';b.disabled=true;m.textContent='';}
-      if(s==='sent'){b.innerHTML=CHECK+'<span>Sent</span>';b.classList.add('sent');m.textContent='Sent. Tap again to send an update.';}
-      if(s==='fail'){b.textContent='Not Sent Yet';b.classList.add('fail');m.textContent='Saved on this device. Tap to retry; it also retries when you reopen.';}}
+      if(s==='sent'){b.innerHTML=CHECK+'<span>Sent</span>';b.classList.add('sent');m.textContent=o.compact?'':'Sent. Tap again to send an update.';}
+      if(s==='fail'){b.textContent=o.compact?'Retry':'Not Sent Yet';b.classList.add('fail');m.textContent=o.compact?'':'Saved on this device. Tap to retry; it also retries when you reopen.';}}
     b.addEventListener('click',function(){if(b.disabled)return;state('sending');
       var p={agent:o.agent,app:o.app,deck:o.deck,results:o.getResults?o.getResults():null,notes:o.getNotes?o.getNotes():'',sentAt:new Date().toISOString(),ua:navigator.userAgent};
+      if(o.extra){var x=o.extra()||{};for(var k in x)p[k]=x[k];}
       post(p).then(function(){state('sent')},function(){setQ(q().concat([p]));state('fail')});});
-    state(q().some(function(p){return p.agent===o.agent&&p.deck===o.deck})?'fail':'idle');
-    flush().then(function(n){if(n&&!q().some(function(p){return p.agent===o.agent&&p.deck===o.deck}))state('sent')});
-    return {el:wrap,state:state};}
+    state(q().some(function(p){return p.agent===o.agent&&p.deck===o.deck&&!!p.partial===!!o.partial})?'fail':'idle');
+    flush().then(function(n){if(n&&!q().some(function(p){return p.agent===o.agent&&p.deck===o.deck&&!!p.partial===!!o.partial}))state('sent')});
+    return {el:wrap,state:state,button:b};}
   w.MWSubmit={button:button,flush:flush,url:URL};
   w.addEventListener('online',flush);
 })(window);
