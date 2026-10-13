@@ -3,8 +3,8 @@
 <link rel="icon" href="A-roof-chevron.svg">
 <link href="https://fonts.googleapis.com/css2?family=Khand:wght@600;700&family=Hind:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="brand-tokens.css">
 <style>
-:root{--ink:#0a0a0a;--navy:#171717;--mute:#737373;--line:#e5e5e5;--bg:#fafafa;--soft:#f5f5f5;--cream:#FBF8F2;--sel:#F3EDE2;--no:#A4161A;--yes:#0B6E4F;--love:#df2225;--maybe:#9A6F00;color-scheme:light}
-*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--ink);font:16px/1.5 Hind,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+:root{--ink:#0a0a0a;--navy:#171717;--mute:#737373;--line:#e5e5e5;--bg:#fff;--soft:#f5f5f5;--cream:#FBF8F2;--sel:#F3EDE2;--no:#A4161A;--yes:#0B6E4F;--love:#df2225;--maybe:#9A6F00;color-scheme:light}
+*{box-sizing:border-box}html,body{margin:0}body{background:#fff;color:var(--ink);font:16px/1.5 Hind,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3{font-family:Khand,sans-serif;font-weight:700;line-height:1.05;margin:0}
 header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:calc(8px + env(safe-area-inset-top)) 14px 8px;display:flex;align-items:center;gap:10px}
 header img{height:30px}header .ct{margin-left:auto;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#525252}
@@ -44,10 +44,11 @@ footer{text-align:center;font-size:12.5px;margin-top:26px}footer a{color:var(--m
 @media(min-width:900px){main{max-width:640px;padding-top:28px}.card{padding:22px}.card h2{font-size:32px}}
 </style></head><body>
 <header><img src="A-roof-chevron.svg" alt="Smart Upkeep"><span class="ct" id="ct"></span></header><div class="pg"><i id="pg" style="width:0"></i></div>
-<main><section class="hero"><div class="eb">Smart Upkeep &middot; Improvement Ideas &middot; Oct 12, 2026</div><div class="rule"></div><h1>Swipe To Vote</h1><p>Swipe right for Yes, left for No, or tap Maybe or Love. Add a note if you like. Tap Share when done.</p></section>
+<main><section class="hero"><div class="eb">Smart Upkeep &middot; Improvement Ideas &middot; Oct 12, 2026</div><div class="rule"></div><h1>Swipe To Vote</h1><p>Swipe right for Yes, left for No, or tap Maybe or Love. Add a note if you like. Tap Submit when done.</p></section>
 <div id="slot"></div>
-<footer><a class="mw-hover" href="https://maxweberman.com" target="_blank" rel="noopener">Built by Max Weberman</a></footer></main>
+</main>
 <div class="bar"><button class="mw-hover" id="share" type="button">⇪ Share My Picks</button></div><div class="toast" id="toast" role="status"></div>
+<script src="submit.js"></script>
 <script>
 const K='smartUpkeepIdeasVotes',DECK='2026-10-12';let ideas=[],i=0;
 const S=()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch(e){return{}}},W=o=>localStorage.setItem(K,JSON.stringify(o));
@@ -62,7 +63,7 @@ $('#slot').innerHTML=`<div class="stage"><article class="card" id="card"><span c
 <div class="ba"><div><b>Before</b>${esc(x.before)}</div><div class="af"><b>After</b>${esc(x.after)}</div></div>
 ${x.img?`<figure class="shot" style="margin:10px 0 0"><img src="${esc(x.img)}" alt="Screenshot of the current app" loading="lazy" draggable="false"><figcaption>Today, On The Live App</figcaption></figure>`:''}
 <label class="nl" for="note">Notes (Optional)</label><textarea id="note" placeholder="Anything to add? Saved with your vote.">${esc(v.note||'')}</textarea>
-<div class="votes">${['No','Maybe','Love','Yes'].map(a=>`<button type="button" class="vb mw-hover ${v.answer===a?'on':''}" data-a="${a}">${a==='Love'?'♥ ':''}${a}</button>`).join('')}</div>
+<div class="votes">${['No','Maybe','Love','Yes'].map(a=>`<button type="button" class="vb mw-hover ${v.answer===a?'on':''}" data-a="${a}">${a}</button>`).join('')}</div>
 <p class="hint">← Swipe Left = No · Swipe Right = Yes →</p>
 <div class="nav"><button class="lk" id="prev" type="button" ${i?'':'disabled'}>← Previous</button><button class="lk" id="skip" type="button">Skip →</button></div></article></div>`;
 document.querySelectorAll('.vb').forEach(b=>b.onclick=()=>vote(b.dataset.a));
@@ -79,11 +80,14 @@ function drag(c){let sx=0,sy=0,dx=0,on=false,lock=null;
 function end(){const o=S(),t={Love:0,Yes:0,Maybe:0,No:0};ideas.forEach(x=>{const a=(o[x.id]||{}).answer;if(a)t[a]++});
 $('#slot').innerHTML=`<section class="end card"><div class="eb">All Done</div><h2>Your Picks</h2><div class="stats">${['Love','Yes','Maybe','No'].map(k=>`<div><b style="color:var(--${k.toLowerCase()})">${t[k]}</b><span>${k}</span></div>`).join('')}</div>
 <div class="list">${ideas.map((x,k)=>{const v=o[x.id]||{};return`<a data-k="${k}"><span class="tg" style="color:var(--${(v.answer||'mute').toLowerCase()})">${esc(v.answer||'Skipped')}</span><span>${esc(x.title)}${v.note?`<br><i style="color:#525252">${esc(v.note)}</i>`:''}</span></a>`}).join('')}</div>
-<p class="hint">Tap any idea to change your vote. Then tap Share to send your picks to Max.</p></section>`;
-document.querySelectorAll('.list a').forEach(a=>a.onclick=()=>{i=+a.dataset.k;render();scrollTo(0,0)})}
+<div id="submitBox"></div><p class="hint">Tap any idea to change your vote. Then tap Submit to send your picks to Max.</p></section>`;
+document.querySelectorAll('.list a').forEach(a=>a.onclick=()=>{i=+a.dataset.k;render();scrollTo(0,0)});
+MWSubmit.button(document.getElementById('submitBox'),{agent:'upkeep',app:'smart-upkeep-ideas',deck:DECK,
+getResults:()=>S(),
+getNotes:()=>{const o=S();return ideas.map((x,k)=>{const v=o[x.id];return v&&v.note?`${k+1}. ${x.title}: ${v.note}`:null}).filter(Boolean).join('\n')}})}
 function summary(){const o=S(),g={Love:[],Yes:[],Maybe:[],No:[]};ideas.forEach((x,k)=>{const v=o[x.id];if(v&&v.answer)g[v.answer].push(`${k+1}. ${x.title}${v.note?' ('+v.note+')':''}`)});
  const notesOnly=ideas.map((x,k)=>{const v=o[x.id];return v&&!v.answer&&v.note?`${k+1}. ${x.title} (${v.note})`:null}).filter(Boolean);
- let s=`Smart Upkeep Ideas ${DECK}: ${counts()}/${ideas.length} voted`;for(const k of['Love','Yes','Maybe','No'])if(g[k].length)s+=`\n\n${k==='Love'?'♥ ':''}${k}:\n`+g[k].join('\n');if(notesOnly.length)s+='\n\nNotes:\n'+notesOnly.join('\n');return s}
+ let s=`Smart Upkeep Ideas ${DECK}: ${counts()}/${ideas.length} voted`;for(const k of['Love','Yes','Maybe','No'])if(g[k].length)s+=`\n\n${k}:\n`+g[k].join('\n');if(notesOnly.length)s+='\n\nNotes:\n'+notesOnly.join('\n');return s}
 const isPhone=()=>/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&/Macintosh/.test(navigator.userAgent));
 async function copyText(t){try{await navigator.clipboard.writeText(t);toast('Copied Picks and Link')}catch(_){const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity=0;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Copied Picks and Link')}catch(e){prompt('Copy your picks:',t)}ta.remove()}}
 $('#share').onclick=async()=>{const url=location.origin+location.pathname,text=summary()+'\n\n'+url;
