@@ -94,4 +94,4 @@ $('#share').onclick=async()=>{const url=location.origin+location.pathname,text=s
  if(navigator.share){try{await navigator.share({title:'Smart Upkeep Ideas',text});return}catch(e){if(e&&e.name==='AbortError')return}}
  if(isPhone()){location.href='sms:?&body='+encodeURIComponent(text);return}await copyText(text)};
 fetch('ideas.json?v='+DECK).then(r=>r.json()).then(j=>{ideas=j;const o=S();const f=ideas.findIndex(x=>!(o[x.id]&&o[x.id].answer));i=f<0?ideas.length:f;render()});
-</script><script src="ptr.js"></script></body></html>
+</script><script src="ptr.js" defer></script></body></html>
